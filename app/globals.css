@@ -1,0 +1,321 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 172 85% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 240 4.8% 95.9%;
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 172 85% 29%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 180 20% 12%;
+    --foreground: 0 0% 98%;
+    --card: 180 20% 10%;
+    --card-foreground: 0 0% 98%;
+    --popover: 180 20% 10%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 172 85% 29%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 180 20% 15%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 180 20% 15%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 180 20% 15%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 180 20% 18%;
+    --input: 180 20% 18%;
+    --ring: 172 85% 29%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  /* Smooth scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Better button transitions */
+  button,
+  a {
+    @apply transition-all duration-300 ease-in-out;
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 ease-in-out hover:translate-y-[-5px] hover:shadow-lg;
+  }
+}
+
+/* Marquee animations */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee2 {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 25s linear infinite;
+}
+
+.animate-marquee2 {
+  animation: marquee2 25s linear infinite;
+}
+
+/* Page transitions */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.5s ease-out forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.5s ease-out forwards;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.5s ease-out forwards;
+}
+
+/* Animation delays */
+.delay-100 {
+  animation-delay: 100ms;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-300 {
+  animation-delay: 300ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-500 {
+  animation-delay: 500ms;
+}
+
+/* Pulse animation for buttons */
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s infinite;
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.8) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite linear;
+}
+
+/* Añadir una nueva animación para efectos de escala más suaves */
+@keyframes gentleScaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-gentle-scale {
+  animation: gentleScaleIn 0.7s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Animación para dibujar un trazo SVG */
+@keyframes drawPath {
+  0% {
+    stroke-dashoffset: 100;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-path {
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: drawPath 1.5s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+/* Animación para botones con efecto de barrido */
+@keyframes sweep {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-sweep {
+  position: relative;
+  overflow: hidden;
+}
+
+.animate-sweep::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  animation: sweep 2s ease-in-out infinite;
+}
+
+/* Prevenir parpadeo durante la hidratación */
+.no-flicker {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  perspective: 1000;
+}
+
+/* Transición de página suave */
+.page-transition-enter {
+  opacity: 0;
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transition: opacity 300ms ease-in-out;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms ease-in-out;
+}
+
